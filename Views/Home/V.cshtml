@@ -1,0 +1,20 @@
+﻿@model List<Artigo>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h1 class="text-center">Artigos</h1>
+
+@foreach (var item in Model)
+{
+    <div>
+        <h2>
+            @item.Titulo
+        </h2>
+        <h3>Publicado por @item.Autor, em @item.DataEnvio.ToString("f")</h3>
+        @Html.Raw(item.Content)
+    </div>   
+    <hr/>
+}

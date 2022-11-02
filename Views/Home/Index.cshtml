@@ -1,0 +1,94 @@
+﻿@model BlogOnline.ViewModels.ArtigoViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<link rel="stylesheet" href="lib/trumbowyg/dist/plugins/colors/ui/trumbowyg.colors.min.css">
+<link rel="stylesheet" href="lib/trumbowyg/dist/plugins/giphy/ui/trumbowyg.giphy.min.css">
+<link rel="stylesheet" href="lib/trumbowyg/dist/plugins/emoji/ui/trumbowyg.emoji.min.css">
+<link rel="stylesheet" href="lib/trumbowyg/dist/ui/trumbowyg.min.css">
+<link rel="stylesheet" href="lib/trumbowyg/dist/plugins/specialchars/ui/trumbowyg.specialchars.min.css">
+<div>
+    <h1>
+        Criar um artigo
+    </h1>
+    <form asp-action="Read" asp-controller="Home" method="post">
+        <input type="text" class="form-control" placeholder="Titulo" asp-for="Titulo"><br>
+        <input type="text" class="form-control" placeholder="Autor" asp-for="Autor"><br>
+        <textarea id="content" cols="30" class="content" rows="10" asp-for="Content"></textarea>
+        <button type="submit" class="btn btn-success">Postar</button>
+    </form>
+    <br>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="lib/trumbowyg/dist/langs/pt_br.min.js"></script>
+<script src="lib/trumbowyg/dist/trumbowyg.min.js"></script>
+<script src="lib/trumbowyg/dist/plugins/fontfamily/trumbowyg.fontfamily.min.js"></script>
+<script src="lib/trumbowyg/dist/plugins/colors/trumbowyg.colors.min.js"></script>
+<script src="lib/trumbowyg/dist/plugins/fontsize/trumbowyg.fontsize.min.js"></script>
+<script src="//rawcdn.githack.com/RickStrahl/jquery-resizable/0.35/dist/jquery-resizable.min.js"></script>
+<script src="lib/trumbowyg/dist/plugins/preformatted/trumbowyg.preformatted.min.js"></script>
+<script src="lib/trumbowyg/dist/plugins/insertaudio/trumbowyg.insertaudio.min.js"></script>
+<script src="lib/trumbowyg/dist/plugins/giphy/trumbowyg.giphy.min.js"></script>
+<script src="lib/trumbowyg/dist/plugins/emoji/trumbowyg.emoji.min.js"></script>
+<script src="lib/trumbowyg/dist/plugins/pasteimage/trumbowyg.pasteimage.min.js"></script>
+<script src="lib/trumbowyg/dist/plugins/template/trumbowyg.template.min.js"></script>
+<script src="lib/trumbowyg/dist/plugins/resizimg/trumbowyg.resizimg.min.js"></script>
+<script src="lib/trumbowyg/dist/plugins/specialchars/trumbowyg.specialchars.min.js"></script>
+<script src="lib/trumbowyg/dist/plugins/noembed/trumbowyg.noembed.min.js"></script>
+<script src="lib/trumbowyg/dist/plugins/pasteembed/trumbowyg.pasteembed.min.js"></script>
+
+<script >
+    $(".content").trumbowyg({    
+     lang: 'pt_br',
+     btnsDef: {
+         // Create a new dropdown
+         image: {
+             dropdown: ['insertImage', 'noembed'],
+             ico: 'insertImage'
+         }
+     },
+     btns: [
+         ['viewHTML'],
+         ['template'],
+         ['undo', 'redo'], // Only supported in Blink browsers
+         ['formatting'],
+         ['fontfamily'],
+         ['strong', 'em', 'del'],
+         ['superscript', 'subscript'],
+         ['link'],
+         ['giphy'],
+         ['emoji'],
+         ['fontsize'],
+         ['insertImage'],
+         ['insertAudio'],
+         ['foreColor', 'backColor'],
+         ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+         ['unorderedList', 'orderedList'],
+         ['horizontalRule'],
+         ['preformatted'],
+         ['removeformat'],
+         ['fullscreen'],
+ 
+     ],
+     plugins: {
+        giphy: {
+            apiKey: 'fUcSaI7uvh2rciUfcgH00DI6IgD0ezlw'
+        },
+        templates: [
+            {
+                name: 'Template 1',
+                html: '<p>I am a template!</p>'
+            },
+            {
+                name: 'Template 2',
+                html: '<p>I am a different template!</p>'
+            }
+        ]
+     },
+     autogrow: true,
+     urlProtocol: true,
+     minimalLinks: true
+    });
+</script>
